@@ -9,4 +9,11 @@ const tokenNew = async (email) => {
     const token = jwt.sign(email, secret, jwtConfig);
     return token;
 };
-module.exports = tokenNew;
+const validateToken = async (token) => {
+  const isValid = jwt.verify(token, secret);
+  return isValid;
+};
+module.exports = {
+  tokenNew,
+  validateToken,
+};

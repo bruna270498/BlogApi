@@ -1,4 +1,4 @@
-const tokenNew = require('../token');
+const { tokenNew } = require('../token');
 
 const Login = async (req, res) => {
     const { email } = req.body;
