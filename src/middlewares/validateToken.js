@@ -8,7 +8,6 @@ const tokenValid = async (req, res, next) => {
                 message: 'Token not found' });
         }
         const infoToken = await validateToken(authorization);
-        console.log(infoToken)
         req.user = infoToken; 
         return next();
     } catch (error) {
