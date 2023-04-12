@@ -18,7 +18,15 @@ const allFind = async () => {
     return allUser;
 };
 
+const findById = async (id) => {
+    const user = await User.findByPk(id, {
+        attributes: { exclude: ['password'] },
+      });
+    return user;
+};
+
 module.exports = {
     userNew,
     allFind,
+    findById,
 };

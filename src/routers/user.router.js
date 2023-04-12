@@ -14,5 +14,6 @@ const validation = [validateName, validateEmail, emailExists, validatePassword];
 
 routerUser.post('/', validation, userController.newUser);
 routerUser.get('/', tokenValid, userController.findAll);
+routerUser.get('/:id', tokenValid, userController.findById);
 
 module.exports = routerUser;
