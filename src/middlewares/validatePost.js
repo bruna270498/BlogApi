@@ -1,5 +1,5 @@
 const { Op } = require('sequelize');
-const { Category, BlogPost } = require('../models');
+const { Category, BlogPost, User } = require('../models');
 
 const emptyPost = async (req, res, next) => {
     const { title, content, categoryIds } = req.body;
@@ -26,8 +26,29 @@ const postIdNull = async (req, res, next) => {
     }
     return next();
 };
+const updatePostNull = async (req, res, next) => {
+    const { title, content } = req.body;
+    if (title.length === 0 || content.length === 0) {
+        return res.status(400).json({
+            message: 'Some required fields are missing' });
+    }
+    return next();
+};
+const userAutorization = async (req, res, next) => {
+    const { user } = req;
+    const { id } = req.params;
+    const users = await User.findAll({ where: { email: user } });
+    const userId = users[0].dataValues.id;
+    const { dataValues } = await BlogPost.findByPk(id);
+    if (userId !== dataValues.userId) {
+        return res.status(401).json({ message: 'Unauthorized user' });
+    }
+    return next();
+};
 module.exports = {
     emptyPost,
     categoryEmpty,
     postIdNull,
+    updatePostNull,
+    userAutorization,
 };
