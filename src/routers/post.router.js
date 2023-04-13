@@ -7,5 +7,6 @@ const routerPost = express.Router();
 const validations = [tokenValid, emptyPost, categoryEmpty];
 
 routerPost.post('/', validations, postController.newPost);
+routerPost.get('/', tokenValid, postController.findAll);
 
 module.exports = routerPost;

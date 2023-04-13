@@ -19,7 +19,7 @@ const BlogPost = (sequelize, DataTypes) => {
     BlogPost.associate = (model) => {
         BlogPost.belongsTo(model.User, {
             foreignKey: 'user_id',
-            as: 'users',
+            as: 'user',
         })
     }
     return BlogPost;

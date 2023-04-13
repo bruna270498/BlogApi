@@ -12,6 +12,18 @@ const postNew = async ({ title, content, categoryIds }, user) => {
         ));
     return post;
 };
+const findAllPost = async () => {
+    const postAll = await BlogPost.findAll({ include: [{
+        model: User,
+        as: 'user',
+        attributes: { exclude: ['password'] },
+    },
+        { model: Category, as: 'categories', through: { attributes: [] } },
+    ] });
+    console.log(postAll);
+    return postAll;
+};
 module.exports = {
     postNew,
+    findAllPost,
 };
