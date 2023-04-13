@@ -1,5 +1,5 @@
 const { Op } = require('sequelize');
-const { Category } = require('../models');
+const { Category, BlogPost } = require('../models');
 
 const emptyPost = async (req, res, next) => {
     const { title, content, categoryIds } = req.body;
@@ -17,7 +17,17 @@ const categoryEmpty = async (req, res, next) => {
     }
     return next();
 };
+const postIdNull = async (req, res, next) => {
+    const { id } = req.params;
+    const postId = await BlogPost.findByPk(id);
+    if (!postId) {
+        return res.status(404).json({
+            message: 'Post does not exist' });
+    }
+    return next();
+};
 module.exports = {
     emptyPost,
     categoryEmpty,
+    postIdNull,
 };
