@@ -34,7 +34,7 @@ Neste projeto foi desenvolvido uma API e um banco de dados para a produção de 
  ```bash
  # clone o repositorio
  
-- git clone git@github.com:bruna270498/Project-Tryunfo.git
+- git clone git@github.com:bruna270498/BlogApi.git
 
 # Rode os serviços node e db
 
