@@ -1,13 +1,59 @@
-# :construction: README customizado em construção ! :construction:
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto no qual você pode customizar e reutilizar todas as vezes que for executar o trybe-publisher.
+#BLOG API
 
-Para deixá-lo com a sua cara, basta alterar o seguinte arquivo da sua máquina: ~/.student-repo-publisher/custom/_NEW_README.md
+## Sobre Projeto
 
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:warning: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+Neste projeto foi desenvolvido uma API e um banco de dados para a produção de conteúdo para um blog!
+
+- Foi desenvolvido uma aplicação em Node.js usando o pacote sequelize para fazer um CRUD de posts.
+
+- Foi desenvolvido endpoints que estarão conectados ao banco de dados seguindo os princípios do REST;
+
+- Foi exigido que o usuário fizesse login para criar um post, o que levou a uma conexão entre o usuário e o post.
+
+- Foi trabalhado a relação de posts para categories e de categories para posts.
+
+## Habilidades Desenvolvidas:
+
+- Desenvolvimento de API: habilidade para criar endpoints seguindo as práticas RESTful;
+- Banco de dados: habilidade para projetar e implementar um banco de dados;
+- Programação com Sequelize: habilidade para usar o pacote Sequelize para criar operações de CRUD;
+- Autenticação e autorizaçã;
+- Relacionamento de entidades;
+
+## Métodos utilizados:
+
+- Sequelize(CRUD);
+- Node.js;
+- Express;
+- MSQL;
+- Docker;
+
+ 
+ ## Como executar:
+ 
+ ```bash
+ # clone o repositorio
+ 
+- git clone git@github.com:bruna270498/Project-Tryunfo.git
+
+# Rode os serviços node e db
+
+- docker-compose up -d --build
+
+# Entre no docker
+
+- docker exec -it blogs_api bash
+
+# Instale as dependências
+
+- npm install.
+
+# Rode o comando
+
+- npm run dev
+
+# Sem docker
+
+- env $(cat .env) npm run dev
+
+```
